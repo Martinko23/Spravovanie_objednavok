@@ -1,0 +1,68 @@
+﻿@model IEnumerable<WebApplication1.Models.Order>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<br>
+
+<p class="p-nadpis">Objednávka</p>
+
+<p class="p-nadpis2">
+    
+    <a asp-action="Create">Vytvoriť novú objednávku</a>
+    </>
+    <table class="table table-hover table-bordered  ">
+        <thead style="border: 5px solid ">
+            <tr>
+                <th style="border: 5px solid">
+<p class="p-nadpis" style="text-align:center">@Html.DisplayNameFor(model => model.Created)
+            </th>
+            <th style="border: 5px solid">
+                <p class="p-nadpis" style="text-align:center">@Html.DisplayNameFor(model => model.Link)
+</th >
+            <th style="border: 5px solid">
+                <p class="p-nadpis" style="text-align:center">@Html.DisplayNameFor(model => model.Price)
+</th>
+            <th style="border: 5px solid">
+                <p class="p-nadpis" style="text-align:center">@Html.DisplayNameFor(model => model.User)
+</th>
+            <th style="border: 5px solid">
+                <p class="p-nadpis" style="text-align:center">@Html.DisplayNameFor(model => model.Status)
+</th>
+            <th style="border: 5px solid">
+                <p class="p-nadpis" style="text-align:center">@Html.DisplayNameFor(model => model.Paid)
+</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td style="border: 5px solid">
+                <p class="p-nadpis2" style="text-align:center">@Html.DisplayFor(modelItem => item.Created)
+</td> 
+            <td style="border: 5px solid">
+                <p class="p-nadpis2" style="text-align:center">@Html.DisplayFor(modelItem => item.Link)
+</td>
+            <td style="border: 5px solid">
+                <p class="p-nadpis2" style="text-align:center">@Html.DisplayFor(modelItem => item.Price)
+</td>
+            <td style="border: 5px solid">
+                <p class="p-nadpis2" style="text-align:center">@Html.DisplayFor(modelItem => item.User.Name)
+</td>
+            <td style="border: 5px solid">
+                <p class="p-nadpis2" style="text-align:center">@Html.DisplayFor(modelItem => item.Status)
+</td>
+            <td style="border: 5px solid">
+                <p class="p-nadpis2" style="text-align:center">@Html.DisplayFor(modelItem => item.Paid)
+</td>
+            <td style="border: 5px solid">
+                <a asp-action="Edit" asp-route-id="@item.ID">Upraviť</a> |
+                <a asp-action="Details" asp-route-id="@item.ID">Nahľad</a> |
+                <a asp-action="Delete" asp-route-id="@item.ID">Vymazať</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
